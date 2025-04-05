@@ -1,0 +1,5 @@
+# Ignore node_modules from frontend
+/frontend/node_modules/
+
+# Ignore target folder from backend
+/backend/target/
