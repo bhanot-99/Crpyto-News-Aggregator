@@ -20,21 +20,20 @@ pub async fn get_news_articles(search: Option<String>) -> Vec<NewsArticle> {
                             continue;
                         }
                     }
-
-                    let price = crypto["quotes"]["USD"]["price"].as_f64().unwrap_or(0.0);
-                    let market_cap = crypto["quotes"]["USD"]["market_cap"].as_f64().unwrap_or(0.0);
-                    let last_updated = crypto["type"].as_str().unwrap_or("Unknown").to_string();
+                    let id = crypto["id"].as_str().unwrap_or("").to_string();
+                    let description = crypto["description"].as_str().unwrap_or("No description available").to_string();
+                    let logo = crypto["logo"].as_str().unwrap_or("").to_string();
+                    let link = crypto["whitepaper"]["link"].as_str().unwrap_or("").to_string();
+                    let started_at = crypto["started_at"].as_str().unwrap_or("Unknown").to_string();
 
                     articles.push(NewsArticle {
-                        title: format!("{} ({})", name, symbol),
-                        source: "CoinPaprika".to_string(),
-                        date: last_updated,
-                        summary: format!(
-                            "Price: ${:.2}, Market Cap: ${:.2}B",
-                            price,
-                            market_cap / 1_000_000_000.0
-                        ),
-                        url: format!("https://coinpaprika.com/coin/{}/", symbol.to_lowercase()),
+                        name,
+                        id,
+                        symbol,
+                        logo,
+                        description,
+                        started_at,
+                        link,
                     });
                 }
             }

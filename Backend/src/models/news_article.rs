@@ -2,9 +2,11 @@ use serde::{Serialize, Deserialize};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct NewsArticle {
-    pub title: String,
-    pub source: String,
-    pub date: String,
-    pub summary: String,
-    pub url: String,
+    pub name: String,
+    pub id: String,
+    pub symbol: String,
+    pub logo: String,
+    pub description: String,
+    pub started_at: String,
+    pub link: String,
 }

@@ -1,11 +1,11 @@
 export interface NewsArticle {
+  name: string;
   id: string;
-  title: string;
-  source: string;
-  type: string;
-  summary: string;
-  url: string;
-  sentiment?: 'positive' | 'neutral' | 'negative';
+  symbol: string;
+  logo: string;
+  description: string;
+  started_at: string;
+  link: string;
 }
 
 export interface SearchFilters {
